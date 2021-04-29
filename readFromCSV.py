@@ -1,7 +1,4 @@
-# This is a sample Python script.
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 import csv
 import tensorflow as tf
 import pandas as pd
@@ -77,10 +74,14 @@ dataset = dataset.shuffle(len(ds_train)).batch(1)
 new_model = tf.keras.models.load_model('saved_model/my_model')
 test_target = ds_test.pop('target')
 
-dataset_test = tf.data.Dataset.from_tensor_slices((ds_test.values, test_target.values))
+
 new_model.evaluate(ds_test, test_target)
 
 
+
+val_target=ds_val.pop('target')
+
+new_model.evaluate(ds_val, val_target)
 
 #
 # model.evaluate(dataset_test)
