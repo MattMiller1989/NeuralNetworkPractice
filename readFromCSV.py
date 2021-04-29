@@ -56,24 +56,31 @@ dataset = tf.data.Dataset.from_tensor_slices((ds_train.values, train_target.valu
 
 dataset = dataset.shuffle(len(ds_train)).batch(1)
 
-def get_compiled_model():
-    model = tf.keras.Sequential([
-        tf.keras.layers.Dense(11, activation='relu'),
-        tf.keras.layers.Dense(11, activation='relu'),
-        tf.keras.layers.Dense(1)
-    ])
+# def get_compiled_model():
+#     model = tf.keras.Sequential([
+#         tf.keras.layers.Dense(11, activation='relu'),
+#         tf.keras.layers.Dense(11, activation='relu'),
+#         tf.keras.layers.Dense(1),
+#         tf.keras.layers.Dense(1)
+#     ])
+#
+#     model.compile(optimizer='adam',
+#                   loss=tf.keras.losses.BinaryCrossentropy(from_logits=True),
+#                   metrics=['accuracy'])
+#     return model
+#
+#
+# model = get_compiled_model()
+# model.fit(dataset, epochs=5)
 
-    model.compile(optimizer='adam',
-                  loss=tf.keras.losses.BinaryCrossentropy(from_logits=True),
-                  metrics=['accuracy'])
-    return model
+# model.save('saved_model/my_model')
+new_model = tf.keras.models.load_model('saved_model/my_model')
+test_target = ds_test.pop('target')
+
+dataset_test = tf.data.Dataset.from_tensor_slices((ds_test.values, test_target.values))
+new_model.evaluate(ds_test, test_target)
 
 
-model = get_compiled_model()
-model.fit(dataset, epochs=15)
 
-# test_target = ds_test.pop('target')
-# 
-# dataset_test = tf.data.Dataset.from_tensor_slices((ds_test.values, test_target.values))
-# 
+#
 # model.evaluate(dataset_test)
