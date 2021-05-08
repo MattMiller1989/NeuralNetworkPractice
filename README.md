@@ -34,6 +34,7 @@ Upon one-hot encoding the target category, I was able to update my output layer 
 - Hidden layer with 140 neurons with tanh.
 - Hidden layer with 63 neurons with tanh.
 - Output layer with 2 neurons with sigmoid.
+
 This model, and slight variations of it, would serve as the basis for my final model. The requirements of the project stated that we had to have 2 hidden layers. Although, when i removed the second hidden layer, my accuracy in the testing data went from 74 to 76 even though the training accuracy would not reach as high of a number. There is definitely some risk in overtraining if you try to have too many hidden layers in your network.
 
 ## Limitations:
