@@ -1,5 +1,5 @@
 # NeuralNetworkPractice
-Assignment 3 Report
+# Assignment 3 Report
 Goal:
 Starting with a CSV file containing 19,000 entries of data scientists, construct a Neural Network that can predict which data scientists are most likely to try and switch jobs.
 Setup/First Steps:
