@@ -27,6 +27,7 @@ My first model after one-hot encoding the data file consisted of:
 - Hidden layer with 63 neurons with tanh activation.
 - Hidden layer with 1 neuron with tanh activation.
 - Output layer with 1 neuron with sigmoid activation.
+
 This model would peak at 89-90% training accuracy. I thought that this was peak performance, as I was getting 85% testing accuracy. Upon further examination, I discovered that I was not properly sequestering my training data, so the model had already seen the data that was being tested in the training stage.
 Upon one-hot encoding the target category, I was able to update my output layer to have two neurons, as stated in the instructions. This model consisted of:
 - Input layer with 63 neurons with tanh.
