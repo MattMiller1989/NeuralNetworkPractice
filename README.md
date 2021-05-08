@@ -13,7 +13,7 @@ My first attempt at data cleanup involved dropping the first index column and th
 I did some research on one-hot encoding and discovered a method in the pandas library called get_dummies() which automatically applied one-hot encoding to all of the categories in the data file. After using one-hot encoding, i was left with 63 categories
 
 ## Initial Model:
-Before using one-hot encoding, I had 11 categories. My model would not begin training unless I had at least one layer with 11 neurons. Because of this, my initial model looked something like this:. With two hidden layers (11 neurons, and 1 neuron). And an output layer with only one neuron.
+Before using one-hot encoding, I had 11 categories. My model would not begin training unless I had at least one layer with 11 neurons. Because of this, my initial model looked something like this: With two hidden layers (11 neurons, and 1 neuron). And an output layer with only one neuron.
 Despite this being my very first model, after running 300 epochs, testing accuracy was still around 75%. Despite attempted improvements, my accuracy would not improve much.
 
 ## Improvements:
@@ -23,16 +23,16 @@ The instructions in the project statement directed us to have two neurons in the
 ## Different Iterations:
 As I mentioned before, the first model I constructed without one-hot encoding and rectified linear unit (Relu) as my activation function would leave me with a training accuracy in the mid- 80s (peaked at 86%) if I ran 300 epochs. My data-split for this model was 75/15/15
 My first model after one-hot encoding the data file consisted of:
-Input layer with 63 neurons with tanh activation.
-Hidden layer with 63 neurons with tanh activation.
-Hidden layer with 1 neuron with tanh activation.
-Output layer with 1 neuron with sigmoid activation.
+- Input layer with 63 neurons with tanh activation.
+- Hidden layer with 63 neurons with tanh activation.
+- Hidden layer with 1 neuron with tanh activation.
+- Output layer with 1 neuron with sigmoid activation.
 This model would peak at 89-90% training accuracy. I thought that this was peak performance, as I was getting 85% testing accuracy. Upon further examination, I discovered that I was not properly sequestering my training data, so the model had already seen the data that was being tested in the training stage.
 Upon one-hot encoding the target category, I was able to update my output layer to have two neurons, as stated in the instructions. This model consisted of:
-Input layer with 63 neurons with tanh.
-Hidden layer with 140 neurons with tanh.
-Hidden layer with 63 neurons with tanh.
-Output layer with 2 neurons with sigmoid.
+- Input layer with 63 neurons with tanh.
+- Hidden layer with 140 neurons with tanh.
+- Hidden layer with 63 neurons with tanh.
+- Output layer with 2 neurons with sigmoid.
 This model, and slight variations of it, would serve as the basis for my final model. The requirements of the project stated that we had to have 2 hidden layers. Although, when i removed the second hidden layer, my accuracy in the testing data went from 74 to 76 even though the training accuracy would not reach as high of a number. There is definitely some risk in overtraining if you try to have too many hidden layers in your network.
 
 ## Limitations:
